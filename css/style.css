@@ -83,11 +83,24 @@ h3 {
   pointer-events: none;
   position: fixed;
   inset: 0;
+  overflow: hidden;
   z-index: 50;
   background:
     repeating-linear-gradient(to bottom, rgba(255,255,255,0.025) 0 1px, transparent 1px 3px),
     radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.25) 100%);
 }
+
+.crt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -25vh;
+  height: 25vh;
+  background: linear-gradient(to bottom, transparent, rgba(230, 227, 218, 0.05), transparent);
+  animation: roll 6s linear infinite;
+}
+@keyframes roll { to { transform: translateY(150vh); } }
 
 /* ---------- BOOT ---------- */
 .boot {
@@ -254,6 +267,7 @@ main { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
 @keyframes blink { 50% { opacity: 0; } }
 
 /* ---------- GLITCH (o nome) ---------- */
+/* O desvio vermelho/ciano é permanente; a cada ciclo há rajadas de rasgo. */
 .glitch {
   position: relative;
   font-family: var(--f-crt);
@@ -261,6 +275,7 @@ main { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
   line-height: 0.85;
   letter-spacing: -0.02em;
   color: var(--phos);
+  animation: jitter 3.2s infinite steps(1);
 }
 .glitch::before,
 .glitch::after {
@@ -269,33 +284,90 @@ main { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
   position: absolute;
   inset: 0;
   pointer-events: none;
+  mix-blend-mode: screen;
 }
 .glitch::before {
   color: var(--sig);
-  mix-blend-mode: screen;
-  animation: tear-a 5s infinite steps(1);
+  transform: translate(-3px, 0);
+  animation: tear-a 3.2s infinite steps(1);
 }
 .glitch::after {
   color: var(--cyan);
-  mix-blend-mode: screen;
-  animation: tear-b 5s infinite steps(1);
+  transform: translate(3px, 0);
+  animation: tear-b 3.2s infinite steps(1);
 }
-/* Quieto quase o tempo todo; rasga em rajadas curtas. */
+@keyframes jitter {
+  0%, 62%, 72%, 86%, 100% { transform: none; }
+  63% { transform: translate(3px, -1px) skewX(-7deg); }
+  65% { transform: translate(-4px, 1px) skewX(6deg); }
+  68% { transform: translate(2px, 0) skewX(-3deg); }
+  87% { transform: translate(4px, 0); }
+}
 @keyframes tear-a {
-  0%, 86%, 100% { transform: none; clip-path: inset(0 0 100% 0); }
-  87% { transform: translate(-6px, 0); clip-path: inset(10% 0 60% 0); }
-  89% { transform: translate(5px, 0); clip-path: inset(55% 0 20% 0); }
-  91% { transform: translate(-3px, 0); clip-path: inset(30% 0 45% 0); }
-  93% { transform: translate(8px, 0); clip-path: inset(75% 0 5% 0); }
+  0%, 62%, 100% { transform: translate(-3px, 0); clip-path: inset(0 0 0 0); }
+  63% { transform: translate(-14px, 0); clip-path: inset(8% 0 62% 0); }
+  65% { transform: translate(10px, 0); clip-path: inset(55% 0 18% 0); }
+  67% { transform: translate(-7px, 2px); clip-path: inset(30% 0 45% 0); }
+  69% { transform: translate(16px, 0); clip-path: inset(76% 0 4% 0); }
+  71% { transform: translate(-3px, 0); clip-path: inset(0 0 0 0); }
+  86% { transform: translate(-10px, 0); clip-path: inset(20% 0 55% 0); }
+  88% { transform: translate(-3px, 0); clip-path: inset(0 0 0 0); }
 }
 @keyframes tear-b {
-  0%, 86%, 100% { transform: none; clip-path: inset(0 0 100% 0); }
-  88% { transform: translate(6px, 0); clip-path: inset(40% 0 35% 0); }
-  90% { transform: translate(-7px, 0); clip-path: inset(5% 0 80% 0); }
-  92% { transform: translate(4px, 0); clip-path: inset(65% 0 10% 0); }
+  0%, 62%, 100% { transform: translate(3px, 0); clip-path: inset(0 0 0 0); }
+  64% { transform: translate(14px, 0); clip-path: inset(42% 0 33% 0); }
+  66% { transform: translate(-11px, 0); clip-path: inset(4% 0 82% 0); }
+  68% { transform: translate(8px, -2px); clip-path: inset(66% 0 8% 0); }
+  70% { transform: translate(-15px, 0); clip-path: inset(18% 0 58% 0); }
+  72% { transform: translate(3px, 0); clip-path: inset(0 0 0 0); }
+  87% { transform: translate(11px, 0); clip-path: inset(50% 0 25% 0); }
+  89% { transform: translate(3px, 0); clip-path: inset(0 0 0 0); }
 }
+.glitch.is-hit,
 .glitch.is-hit::before,
 .glitch.is-hit::after { animation-duration: 0.6s; }
+
+/* títulos de seção: rasgam e embaralham ao aparecer e ao passar o mouse */
+.glitch-h { position: relative; }
+.glitch-h::before,
+.glitch-h::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.glitch-h::before { color: var(--sig); }
+.glitch-h::after { color: var(--cyan); }
+.glitch-h.is-glitching::before { animation: h-tear-a 0.5s steps(1); }
+.glitch-h.is-glitching::after { animation: h-tear-b 0.5s steps(1); }
+@keyframes h-tear-a {
+  0%   { opacity: 1; transform: translate(-6px, 0); clip-path: inset(0 0 55% 0); }
+  25%  { opacity: 1; transform: translate(5px, 0); clip-path: inset(40% 0 20% 0); }
+  50%  { opacity: 1; transform: translate(-4px, 0); clip-path: inset(70% 0 0 0); }
+  75%  { opacity: 1; transform: translate(3px, 0); clip-path: inset(10% 0 60% 0); }
+  100% { opacity: 0; transform: none; }
+}
+@keyframes h-tear-b {
+  0%   { opacity: 1; transform: translate(6px, 0); clip-path: inset(50% 0 10% 0); }
+  25%  { opacity: 1; transform: translate(-5px, 0); clip-path: inset(5% 0 70% 0); }
+  50%  { opacity: 1; transform: translate(4px, 0); clip-path: inset(25% 0 45% 0); }
+  75%  { opacity: 1; transform: translate(-3px, 0); clip-path: inset(65% 0 5% 0); }
+  100% { opacity: 0; transform: none; }
+}
+
+/* quadro inteiro "rasga" por um instante (disparado pelo JS) */
+.is-frame-hit main { animation: frame-hit 0.22s steps(2) 1; }
+@keyframes frame-hit {
+  0%   { transform: translateX(-5px); filter: drop-shadow(4px 0 var(--sig)) drop-shadow(-4px 0 var(--cyan)); }
+  50%  { transform: translateX(6px) skewX(-1.5deg); filter: drop-shadow(-5px 0 var(--sig)) drop-shadow(5px 0 var(--cyan)); }
+  100% { transform: none; filter: none; }
+}
+
+/* identidade no topo sempre com a franja RGB */
+.topbar__id span { text-shadow: 2px 0 rgba(255, 30, 60, 0.7), -2px 0 rgba(25, 230, 255, 0.55); }
 
 /* ---------- TERMINAL ---------- */
 .term {
@@ -429,7 +501,7 @@ main { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
 .chain__phase {
   display: block;
   font-family: var(--f-crt);
-  font-size: clamp(1.25rem, 2.1vw, var(--step-2));
+  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
   line-height: 1;
   color: var(--sig);
   margin-bottom: 0.4rem;
@@ -581,8 +653,8 @@ body.is-root .term { border-color: var(--sig); }
 /* ---------- MOVIMENTO REDUZIDO ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .glitch::before, .glitch::after,
+  .glitch, .glitch::before, .glitch::after, .crt::after,
   .dot, .chain__step.is-active::after { animation: none !important; }
-  .glitch::before, .glitch::after { display: none; }
+  .crt::after { display: none; }
   .boot { display: none !important; }
 }

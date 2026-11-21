@@ -408,6 +408,62 @@
   }
   title && title.addEventListener("click", hitGlitch);
 
+  /* ---------- glitch nos títulos e no quadro ---------- */
+  const SCRAMBLE = "!<>-_/[]{}=+*^?#01";
+  function scramble(el) {
+    const final = el.dataset.text;
+    if (reduced || !final) return;
+    const total = 14;
+    let frame = 0;
+    const timer = setInterval(() => {
+      frame++;
+      let out = "";
+      for (let i = 0; i < final.length; i++) {
+        out += final[i] === " " || i < (frame / total) * final.length
+          ? final[i]
+          : SCRAMBLE[Math.floor(Math.random() * SCRAMBLE.length)];
+      }
+      el.textContent = out;
+      if (frame >= total) { clearInterval(timer); el.textContent = final; }
+    }, 38);
+  }
+  function flicker(el) {
+    if (reduced) return;
+    el.classList.remove("is-glitching");
+    void el.offsetWidth; // reinicia a animação
+    el.classList.add("is-glitching");
+    setTimeout(() => el.classList.remove("is-glitching"), 520);
+  }
+  const heads = document.querySelectorAll("h2");
+  heads.forEach((h) => {
+    h.dataset.text = h.textContent;
+    h.setAttribute("aria-label", h.textContent);
+    h.classList.add("glitch-h");
+    h.addEventListener("mouseenter", () => flicker(h));
+  });
+  if ("IntersectionObserver" in window && !reduced) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        scramble(en.target);
+        flicker(en.target);
+      });
+    }, { threshold: 0.6 });
+    heads.forEach((h) => io.observe(h));
+  }
+
+  // de tempos em tempos a página inteira "rasga" por um instante
+  function frameGlitch() {
+    if (!reduced && !document.hidden && !document.getElementById("boot")) {
+      document.body.classList.add("is-frame-hit");
+      hitGlitch();
+      setTimeout(() => document.body.classList.remove("is-frame-hit"), 220);
+    }
+    setTimeout(frameGlitch, 5000 + Math.random() * 6000);
+  }
+  setTimeout(frameGlitch, 3500);
+
   /* ---------- mensagem inicial ---------- */
   let started = false;
   function startTerminal() {
