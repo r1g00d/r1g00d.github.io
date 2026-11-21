@@ -75,7 +75,7 @@
   const FLAG3_B64 = "cjFnMDBke3ByMXZfM3NjX3YxYV9zdWQwfQ==";
   let found = store.get("r1-flags", []);
   if (!Array.isArray(found)) found = [];
-  found = found.filter((n) => n === 1 || n === 2 || n === 3);
+  found = [...new Set(found.filter((n) => n === 1 || n === 2 || n === 3))];
   const counter = $("#flag-counter");
 
   function renderCounter() {
@@ -240,7 +240,7 @@
       document.body.appendChild(a);
       a.click();
       a.remove();
-      return 'Baixando currículo... <span class="t-dim">(se não começar, <a href="' + CV + '" download>clique aqui</a>)</span>';
+      return 'Baixando currículo... <span class="t-dim">(se não começar, <a href="' + CV + '" download="Joao_Victor_Rigo_Curriculo.pdf">clique aqui</a>)</span>';
     },
 
     clear() { out.innerHTML = ""; return null; },
