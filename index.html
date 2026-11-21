@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>r1g00d // João Victor Rigo</title>
+  <meta name="description" content="João Victor Rigo (r1g00d): Red Team entry-level em formação, com base em infraestrutura, redes e Linux.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="r1g00d // João Victor Rigo">
+  <meta property="og:description" content="Red Team entry-level em formação. Entre no sistema.">
+  <link rel="icon" href="assets/sigil.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/boot-flag.js"></script>
+</head>
+<body>
+<!--
+  ================================================================
+   Bem-vindo ao código-fonte. Recon é a primeira fase de tudo.
+   Você acabou de fazer a sua.
+
+   FLAG 1/3: r1g00d{v13w_s0urc3_1s_r3c0n}
+
+   Envie no terminal do site com:  submit <flag>
+   Ainda faltam duas. Dica: devs também olham o console.
+  ================================================================
+-->
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- BOOT -->
+<div id="boot" class="boot" aria-hidden="true">
+  <pre id="boot-log" class="boot__log"></pre>
+  <p class="boot__skip">clique ou pressione qualquer tecla para pular</p>
+</div>
+
+<div class="crt" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="topbar__id" href="#topo" aria-label="r1g00d, início">
+    <img src="assets/sigil.svg" alt="" width="28" height="28">
+    <span>r1g00d</span>
+  </a>
+  <nav class="topbar__nav" aria-label="Seções">
+    <a href="#trilha">Trilha</a>
+    <a href="#missoes">Experiência</a>
+    <a href="#findings">Projetos</a>
+    <a href="#scan">Skills</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="btn btn--solid" href="assets/curriculo.pdf" download="Joao_Victor_Rigo_Curriculo.pdf"><span class="btn__long">Baixar currículo</span><span class="btn__short">Baixar CV</span></a>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section id="topo" class="hero">
+    <div class="hero__name">
+      <p class="hero__pre">root@r1g00d:~# whoami</p>
+      <h1 class="glitch" data-text="r1g00d">r1g00d</h1>
+      <p class="hero__real">João Victor Rigo</p>
+      <p class="hero__role">Red Team entry-level em formação. Quatro anos dentro de infraestrutura corporativa, agora do outro lado do firewall.</p>
+      <p class="hero__status"><span class="dot" aria-hidden="true"></span> Aberto a oportunidades em pentest, com supervisão.</p>
+    </div>
+
+    <div class="term" id="terminal">
+      <div class="term__bar">
+        <span class="term__title">r1g00d@kali: ~</span>
+        <span class="term__flags" id="flag-counter" title="Flags encontradas">flags 0/3</span>
+      </div>
+      <div class="term__out" id="term-out" role="log" aria-label="Saída do terminal" tabindex="0"></div>
+      <form class="term__in" id="term-form" autocomplete="off">
+        <label for="term-input" class="term__prompt">r1g00d@kali:~$</label>
+        <input id="term-input" type="text" spellcheck="false" autocapitalize="off" aria-label="Digite um comando. Digite help para ver a lista.">
+      </form>
+      <div class="term__quick" role="group" aria-label="Comandos rápidos">
+        <span class="term__hint">Não usa terminal? Clique:</span>
+        <button type="button" data-cmd="whoami">quem sou</button>
+        <button type="button" data-cmd="cat missoes.log">experiência</button>
+        <button type="button" data-cmd="ls findings/">projetos</button>
+        <button type="button" data-cmd="nmap -sV r1g00d">skills</button>
+        <button type="button" data-cmd="contato">contato</button>
+        <button type="button" data-cmd="help">todos os comandos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- KILL CHAIN -->
+  <section id="trilha" class="sec">
+    <p class="sec__cmd">$ ./killchain --alvo=carreira</p>
+    <h2>Trilha de carreira</h2>
+    <p class="sec__lead">Toda operação segue fases. A minha também.</p>
+
+    <ol class="chain">
+      <li class="chain__step is-done">
+        <span class="chain__phase">Recon</span>
+        <h3>Base técnica</h3>
+        <p>Técnico em Informática pela ETEC Dr. Júlio Cardoso (2020). Primeiro emprego como aprendiz de T.I na Jussara S.A.</p>
+      </li>
+      <li class="chain__step is-done">
+        <span class="chain__phase">Enumeração</span>
+        <h3>Infraestrutura em escala</h3>
+        <p>Incidentes críticos na Magazine Luiza e 30 unidades descentralizadas no Projeto Sabesp, pela Solutis.</p>
+      </li>
+      <li class="chain__step is-done">
+        <span class="chain__phase">Exploração</span>
+        <h3>Primeiro acesso</h3>
+        <p>Pre Security concluído no TryHackMe, máquinas no HackTheBox, programa Hackers do Bem e o TR1GG3R SIEM.</p>
+      </li>
+      <li class="chain__step is-active">
+        <span class="chain__phase">Pivot</span>
+        <h3>eJPT</h3>
+        <p>Em andamento, junto com PortSwigger Academy e Engenharia da Computação na Unifran.</p>
+      </li>
+      <li class="chain__step">
+        <span class="chain__phase">Objetivo</span>
+        <h3>OSCP</h3>
+        <p>Próximo alvo. CompTIA Security+ no caminho.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- MISSOES -->
+  <section id="missoes" class="sec">
+    <p class="sec__cmd">$ cat missoes.log</p>
+    <h2>Experiência profissional</h2>
+
+    <div class="log">
+      <article class="log__entry">
+        <p class="log__ts">[2025-10 → atual]</p>
+        <div>
+          <h3>Positivo Tecnologia S.A.</h3>
+          <p class="log__role">Técnico de Suporte Jr. (Field Service)</p>
+          <ul>
+            <li>Sustentação autônoma do parque tecnológico de clientes corporativos e governamentais, com gestão de SLA em várias unidades.</li>
+            <li>Diagnóstico avançado de hardware e software e aplicação de políticas de segurança lógica em estações de trabalho.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="log__entry">
+        <p class="log__ts">[2024-09 → 2025-02]</p>
+        <div>
+          <h3>Solutis Tecnologias (Projeto Sabesp)</h3>
+          <p class="log__role">Analista de Suporte Pleno</p>
+          <ul>
+            <li>Responsável pela infraestrutura de 30 unidades descentralizadas, resolvendo falhas de rede e conectividade.</li>
+            <li>Reporte técnico direto à gestão do cliente, com foco em reduzir a reincidência de falhas.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="log__entry">
+        <p class="log__ts">[2022-11 → 2024-09]</p>
+        <div>
+          <h3>Magazine Luiza S.A. (Netshoes)</h3>
+          <p class="log__role">Assistente Pleno de Operações Especiais / Suporte</p>
+          <ul>
+            <li>Gestão de crises em célula de alta criticidade, com monitoramento e proteção da marca em canais digitais.</li>
+            <li>Triagem de incidentes para engenharia e logística, com análise de causa raiz.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="log__entry">
+        <p class="log__ts">[2021-02 → 2022-01]</p>
+        <div>
+          <h3>Jussara S.A.</h3>
+          <p class="log__role">Aprendiz de T.I</p>
+          <ul>
+            <li>Suporte N1 e N2 para usuários administrativos, manutenção de hardware e controle de inventário.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="edu">
+      <h3>Formação</h3>
+      <ul>
+        <li><strong>Engenharia da Computação</strong>, Universidade de Franca (Unifran). Em andamento.</li>
+        <li><strong>Técnico em Informática</strong>, ETEC Dr. Júlio Cardoso. Concluído em 2020.</li>
+        <li><strong>Espanhol</strong>, Centro de Estudos de Línguas (Gov. SP). Concluído em 2019.</li>
+        <li>Idiomas: inglês intermediário, espanhol intermediário.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section id="findings" class="sec">
+    <p class="sec__cmd">$ ls findings/</p>
+    <h2>Projetos</h2>
+    <p class="sec__lead">Documentados como achados de um relatório de pentest.</p>
+
+    <article class="finding finding--high">
+      <header class="finding__head">
+        <span class="finding__id">R1G-001</span>
+        <span class="sev sev--high">Severidade: alta</span>
+      </header>
+      <h3>TR1GG3R SIEM</h3>
+      <p>IDS/WAF educacional que evoluiu para SIEM, escrito em Python puro, sem nenhuma dependência externa. Frontend em HTML, CSS e JS sem frameworks.</p>
+      <dl class="finding__meta">
+        <div><dt>Detecta</dt><dd>SQL injection, XSS, path traversal, brute force e scanners como sqlmap, nikto, hydra e nmap.</dd></div>
+        <div><dt>Resposta</dt><dd>Bloqueio, banimento de IP por 300s após 5 tentativas, alerta por e-mail e rate limiting em SQLite.</dd></div>
+        <div><dt>Stack</dt><dd>http.server, sqlite3, smtplib, threading</dd></div>
+      </dl>
+<pre class="finding__poc">$ trigger_siem --status
+[SCAN] SQL Injection ....... BLOQUEADO + alerta
+[SCAN] Brute Force ......... IP banido (300s)
+[SCAN] Scanner detectado ... sqlmap / nikto / nmap
+[OK]   0 dependências externas</pre>
+      <a class="btn" href="https://github.com/r1g00d/trigger_siem" target="_blank" rel="noopener">Ver repositório</a>
+    </article>
+
+    <article class="finding finding--info">
+      <header class="finding__head">
+        <span class="finding__id">R1G-002</span>
+        <span class="sev sev--info">Severidade: informativa</span>
+      </header>
+      <h3>Solo Nativo</h3>
+      <p>Plataforma educacional sobre geografia, biomas e geopolítica brasileira. Projeto acadêmico da Unifran em que atuo como Product Owner e desenvolvedor, com UML, BPMN e documentação ABNT.</p>
+      <a class="btn" href="https://github.com/r1g00d/solo-nativo" target="_blank" rel="noopener">Ver repositório</a>
+    </article>
+  </section>
+
+  <!-- SCAN -->
+  <section id="scan" class="sec">
+    <p class="sec__cmd">$ nmap -sV r1g00d</p>
+    <h2>Skills</h2>
+    <p class="sec__lead">Porta aberta: uso no dia a dia. Filtrada: em estudo.</p>
+
+    <div class="scan" role="table" aria-label="Skills em formato de scan de portas">
+      <div class="scan__row scan__row--head" role="row">
+        <span role="columnheader">Porta</span><span role="columnheader">Estado</span><span role="columnheader">Serviço</span><span role="columnheader">Versão</span>
+      </div>
+      <div class="scan__row" role="row"><span role="cell">22/tcp</span><span role="cell" class="st-open">open</span><span role="cell">linux</span><span role="cell">Kali, Bash, permissões e processos</span></div>
+      <div class="scan__row" role="row"><span role="cell">53/tcp</span><span role="cell" class="st-open">open</span><span role="cell">redes</span><span role="cell">TCP/IP, DNS, DHCP, VPN, LAN/WLAN</span></div>
+      <div class="scan__row" role="row"><span role="cell">80/tcp</span><span role="cell" class="st-open">open</span><span role="cell">web-pentest</span><span role="cell">Burp Suite, PortSwigger Academy</span></div>
+      <div class="scan__row" role="row"><span role="cell">389/tcp</span><span role="cell" class="st-open">open</span><span role="cell">windows</span><span role="cell">Windows 10/11, Active Directory</span></div>
+      <div class="scan__row" role="row"><span role="cell">443/tcp</span><span role="cell" class="st-open">open</span><span role="cell">python</span><span role="cell">Automação e ferramentas próprias, só stdlib</span></div>
+      <div class="scan__row" role="row"><span role="cell">1337/tcp</span><span role="cell" class="st-open">open</span><span role="cell">offensive</span><span role="cell">Nmap, Metasploit, HackTheBox, TryHackMe</span></div>
+      <div class="scan__row" role="row"><span role="cell">8080/tcp</span><span role="cell" class="st-open">open</span><span role="cell">osint</span><span role="cell">Shodan, Sherlock, Maigret</span></div>
+      <div class="scan__row" role="row"><span role="cell">9200/tcp</span><span role="cell" class="st-filt">filtered</span><span role="cell">siem</span><span role="cell">Sentinel, Splunk, QRadar, MITRE ATT&amp;CK</span></div>
+      <div class="scan__row" role="row"><span role="cell">31337/tcp</span><span role="cell" class="st-filt">filtered</span><span role="cell">c++</span><span role="cell">Próxima linguagem</span></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="sec sec--contact">
+    <p class="sec__cmd">$ nc -lvnp 4444</p>
+    <h2>Abra uma conexão</h2>
+    <p class="sec__lead">Estou ouvindo. Vagas de pentest, Red Team júnior ou trainee de segurança.</p>
+    <div class="contact">
+      <a class="btn btn--solid" href="mailto:r11gg0d@gmail.com">r11gg0d@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/jvrigo/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/r1g00d" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://tryhackme.com/p/r11gg0d" target="_blank" rel="noopener">TryHackMe</a>
+      <a class="btn" href="assets/curriculo.pdf" download="Joao_Victor_Rigo_Curriculo.pdf">Baixar currículo</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>[EOF] Feito à mão em HTML, CSS e JS. Sem frameworks.</p>
+  <p class="foot__ethics">Só ataco o que tenho autorização para atacar.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
