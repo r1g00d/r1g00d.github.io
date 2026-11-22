@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="r1g00d">
-  <rect width="64" height="64" fill="#000"/>
-  <!-- colchetes -->
-  <path d="M14 10H8v44h6M50 10h6v44h-6" fill="none" stroke="#E6E3DA" stroke-width="3"/>
-  <!-- zero cortado, metade de cima -->
-  <path d="M20 30a12 12 0 0 1 24 0" fill="none" stroke="#E6E3DA" stroke-width="4"/>
-  <!-- metade de baixo deslocada (glitch) -->
-  <path d="M23 36a12 12 0 0 0 24 0" fill="none" stroke="#FF1E3C" stroke-width="4"/>
-  <!-- barra do 1 / mira -->
-  <path d="M32 14v36" stroke="#E6E3DA" stroke-width="3"/>
-  <!-- rasgo -->
-  <path d="M12 33h40" stroke="#FF1E3C" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="10" fill="#000000"/>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="8" fill="none" stroke="#2B2A28" stroke-width="2.5"/>
+  <g fill="none" stroke-width="4.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M15 48V16h13c5.5 0 9.5 3.5 9.5 8.5S33.5 33 28 33H15m12 0 11 15M44 21l5-5v32" stroke="#19E6FF" transform="translate(2.2, 0)" opacity="0.88"/>
+    <path d="M15 48V16h13c5.5 0 9.5 3.5 9.5 8.5S33.5 33 28 33H15m12 0 11 15M44 21l5-5v32" stroke="#FF1E3C" transform="translate(-2.2, 0)" opacity="0.92"/>
+    <path d="M15 48V16h13c5.5 0 9.5 3.5 9.5 8.5S33.5 33 28 33H15m12 0 11 15M44 21l5-5v32" stroke="#E6E3DA"/>
+  </g>
 </svg>

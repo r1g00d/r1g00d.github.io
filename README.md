@@ -1,6 +1,10 @@
 # r1g00d.github.io
 
+<<<<<<< HEAD
 Portfólio de João V. Rigo (r1g00d), Red Team & Pentester entry-level em formação.
+=======
+Portfólio de João Victor Rigo (r1g00d), Red Team entry-level em formação.
+>>>>>>> 6f773b1e8e10283cad73fe4034afd82007e75fc2
 
 **Acesse:** https://r1g00d.github.io
 
@@ -32,4 +36,8 @@ Substitua `assets/curriculo.pdf` mantendo o mesmo nome.
 
 ---
 
+<<<<<<< HEAD
 `[EOF]` HACK THE PLANET! 🌎⚡
+=======
+`[EOF]` Só ataco o que tenho autorização para atacar.
+>>>>>>> 6f773b1e8e10283cad73fe4034afd82007e75fc2

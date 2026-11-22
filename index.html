@@ -38,12 +38,16 @@
   <p class="boot__skip">clique ou pressione qualquer tecla para pular</p>
 </div>
 
+<!-- FUNDO MATRIX (ATIVO APENAS NO MODO ROOT) -->
+<canvas id="matrix-canvas" class="matrix-bg" aria-hidden="true"></canvas>
+
 <div class="crt" aria-hidden="true"></div>
 
 <header class="topbar">
   <a class="topbar__id" href="#topo" aria-label="r1g00d, início">
     <img src="assets/sigil.svg" alt="" width="28" height="28">
     <span>r1g00d</span>
+    <span class="topbar__root-tag" aria-hidden="true">[ROOT]</span>
   </a>
   <nav class="topbar__nav" id="topbar-nav" aria-label="Seções">
     <button type="button" id="toggle-anim" class="topbar__anim" aria-pressed="true" title="Ativar ou desativar animações e efeitos visuais">
@@ -72,18 +76,18 @@
       <p class="hero__pre">root@r1g00d:~# whoami</p>
       <h1 class="glitch" data-text="r1g00d">r1g00d</h1>
       <p class="hero__real">João V. Rigo</p>
-      <p class="hero__role">Red Team &amp; Pentester entry-level em formação. Quatro anos dentro de infraestrutura corporativa, agora do outro lado do firewall.</p>
+      <p class="hero__role">Red Team &amp; Pentester entry-level em formação. Dois anos dentro de infraestrutura corporativa, agora do outro lado do firewall.</p>
       <p class="hero__status"><span class="dot" aria-hidden="true"></span> Aberto a oportunidades em Red Team e Pentest.</p>
     </div>
 
     <div class="term" id="terminal">
       <div class="term__bar">
-        <span class="term__title">r1g00d@kali: ~</span>
+        <span class="term__title" id="term-title">r1g00d@kali: ~</span>
         <span class="term__flags" id="flag-counter" title="Flags encontradas">flags 0/3</span>
       </div>
       <div class="term__out" id="term-out" role="log" aria-label="Saída do terminal" tabindex="0"></div>
       <form class="term__in" id="term-form" autocomplete="off">
-        <label for="term-input" class="term__prompt">r1g00d@kali:~$</label>
+        <label for="term-input" class="term__prompt" id="term-prompt">r1g00d@kali:~$</label>
         <input id="term-input" type="text" maxlength="256" spellcheck="false" autocapitalize="off" aria-label="Digite um comando. Digite help para ver a lista.">
       </form>
       <div class="term__quick" role="group" aria-label="Comandos rápidos">
@@ -94,6 +98,7 @@
         <button type="button" data-cmd="nmap -sV r1g00d">skills</button>
         <button type="button" data-cmd="contato">contato</button>
         <button type="button" data-cmd="help">todos os comandos</button>
+        <button type="button" class="term__quick-root" data-cmd="cat /root/contratar.txt">contratar.txt</button>
       </div>
     </div>
   </section>
@@ -282,44 +287,17 @@
 
 <footer class="foot">
   <div class="planet-egg" id="planet-egg" role="button" tabindex="0" title="Clique: HACK THE PLANET!">
-    <div class="planet-viewport">
-      <svg class="planet-svg" viewBox="0 0 160 160" width="130" height="130" aria-hidden="true">
-        <defs>
-          <radialGradient id="planet-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FF1E3C" stop-opacity="0.35" />
-            <stop offset="65%" stop-color="#FF1E3C" stop-opacity="0.08" />
-            <stop offset="100%" stop-color="transparent" />
-          </radialGradient>
-        </defs>
-        <!-- Brilho de dispersão atmosférica -->
-        <circle cx="80" cy="80" r="72" fill="url(#planet-glow)" />
-        <!-- Esfera do planeta -->
-        <circle class="planet-sphere" cx="80" cy="80" r="46" stroke="var(--sig)" stroke-width="1.6" fill="#080305" />
-        <!-- Grade de meridianos e paralelos -->
-        <ellipse class="planet-grid planet-grid--lat1" cx="80" cy="80" rx="46" ry="16" stroke="var(--sig)" stroke-width="1" fill="none" opacity="0.6" />
-        <ellipse class="planet-grid planet-grid--lat2" cx="80" cy="80" rx="46" ry="32" stroke="var(--sig)" stroke-width="1" fill="none" opacity="0.45" />
-        <ellipse class="planet-grid planet-grid--lon1" cx="80" cy="80" rx="16" ry="46" stroke="var(--sig)" stroke-width="1" fill="none" opacity="0.6" />
-        <ellipse class="planet-grid planet-grid--lon2" cx="80" cy="80" rx="32" ry="46" stroke="var(--sig)" stroke-width="1" fill="none" opacity="0.45" />
-        <line x1="34" y1="80" x2="126" y2="80" stroke="var(--sig)" stroke-width="1" opacity="0.5" />
-        <line x1="80" y1="34" x2="80" y2="126" stroke="var(--sig)" stroke-width="1" opacity="0.5" />
-        <!-- Anel de invasão / transferência orbital -->
-        <ellipse class="planet-ring" cx="80" cy="80" rx="66" ry="24" stroke="var(--cyan)" stroke-width="1.8" stroke-dasharray="8 5" fill="none" />
-        <ellipse class="planet-ring planet-ring--rev" cx="80" cy="80" rx="58" ry="36" stroke="var(--sig)" stroke-width="1.2" stroke-dasharray="4 8" fill="none" opacity="0.8" />
-        <!-- Pacotes de dados de ataque orbitando -->
-        <circle class="planet-node planet-node--1" cx="146" cy="80" r="3.5" fill="var(--cyan)" />
-        <circle class="planet-node planet-node--2" cx="14" cy="80" r="3" fill="var(--sig)" />
-        <!-- Linha de varredura laser / scanline radar -->
-        <line class="planet-radar" x1="80" y1="80" x2="126" y2="80" stroke="var(--cyan)" stroke-width="1.8" opacity="0.75" />
-        <!-- Retículo de mira militar cyberpunk (Lock-on) -->
-        <g class="planet-hud">
-          <circle cx="80" cy="80" r="54" stroke="var(--dim)" stroke-width="0.8" stroke-dasharray="10 32" fill="none" opacity="0.6" />
-          <path d="M70,26 L90,26 M80,16 L80,36 M70,134 L90,134 M80,124 L80,144 M26,70 L26,90 M16,80 L36,80 M134,70 L134,90 M124,80 L144,80" stroke="var(--sig)" stroke-width="1.4" opacity="0.85" />
-        </g>
-      </svg>
-    </div>
+    <svg class="planet-svg" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true">
+      <circle cx="32" cy="32" r="22" stroke="var(--sig)" stroke-width="1.5" fill="none" />
+      <ellipse cx="32" cy="32" rx="22" ry="8" stroke="var(--sig)" stroke-width="1" fill="none" opacity="0.65" />
+      <ellipse cx="32" cy="32" rx="9" ry="22" stroke="var(--sig)" stroke-width="1" fill="none" opacity="0.65" />
+      <line x1="10" y1="32" x2="54" y2="32" stroke="var(--sig)" stroke-width="1" opacity="0.5" />
+      <line x1="32" y1="10" x2="32" y2="54" stroke="var(--sig)" stroke-width="1" opacity="0.5" />
+      <ellipse class="planet-ring" cx="32" cy="32" rx="29" ry="10" stroke="var(--cyan)" stroke-width="1.2" stroke-dasharray="4 3" fill="none" />
+    </svg>
     <div class="planet-text">
-      <p class="planet-title"><span class="planet-badge">[INTRUSION ACTIVE]</span> &ldquo;HACK THE PLANET!&rdquo;</p>
-      <p class="planet-sub">&mdash; Hackers (1995) &bull; payload injetado &bull; root access unlocked</p>
+      <p class="planet-title" id="planet-quote">&ldquo;HACK THE PLANET!&rdquo;</p>
+      <p class="planet-sub">&mdash; Hackers (1995)</p>
     </div>
   </div>
   <p class="foot__copy">[EOF] r1g00d // Red Team &amp; Pentester. Feito à mão com HTML, CSS e JS.</p>
@@ -330,6 +308,26 @@
   <span class="btn-top__icon" aria-hidden="true">▲</span>
   <span class="btn-top__text">cd ~</span>
 </button>
+
+<!-- SEQUÊNCIA PÓS-ROOT: SISTEMA COMPROMETIDO -->
+<div id="breach-overlay" class="breach" role="dialog" aria-modal="true" aria-labelledby="breach-title" hidden>
+  <div class="breach__box">
+    <div class="breach__bar">
+      <span class="breach__tag">[PRIVILEGE ESCALATION // UID=0]</span>
+      <span class="breach__timer" id="breach-timer">00:03.0</span>
+    </div>
+    <pre id="breach-log" class="breach__log"></pre>
+    <div id="breach-cta" class="breach__cta" hidden>
+      <h2 id="breach-title" class="breach__title" data-text="SISTEMA COMPROMETIDO">SISTEMA COMPROMETIDO</h2>
+      <p class="breach__desc">Você leu o código-fonte, inspecionou o console e escalou privilégio para <strong>root@r1g00d</strong>. Mentalidade ofensiva comprovada na prática.</p>
+      <div class="breach__actions">
+        <a id="breach-contact-btn" class="btn btn--solid" href="mailto:r11gg0d@gmail.com?subject=Root%20Access%20-%20Oportunidade%20r1g00d">Abrir canal de contato</a>
+        <button type="button" id="breach-read-btn" class="btn">Ler /root/contratar.txt</button>
+        <button type="button" id="breach-close-btn" class="btn breach__btn-close">[ voltar ao terminal ]</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
