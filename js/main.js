@@ -1,5 +1,5 @@
 /* =========================================================
-   r1g00d // portfólio — terminal, boot, WAF e mini CTF
+   r1g0d // portfólio — terminal, boot, WAF e mini CTF
    JS puro, sem dependências.
    ========================================================= */
 (() => {
@@ -61,7 +61,7 @@
       return { start() {}, stop() {} };
     }
     const ctx = matrixCanvas.getContext("2d");
-    const GLYPHS = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンR1G00D#$*+";
+    const GLYPHS = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンr1g0d#$*+";
     const FONT_SIZE = 15;
     let rafId = null;
     let lastTick = 0;
@@ -342,8 +342,8 @@
         counter.textContent = "root";
         counter.classList.add("is-root");
       }
-      if (termTitle) termTitle.textContent = "root@r1g00d: ~";
-      if (termPrompt) termPrompt.textContent = "root@r1g00d:~#";
+      if (termTitle) termTitle.textContent = "root@r1g0d: ~";
+      if (termPrompt) termPrompt.textContent = "root@r1g0d:~#";
       if (animsEnabled) matrix.start();
       if (animate) playBreachSequence();
     } else {
@@ -352,8 +352,8 @@
         counter.textContent = `flags ${found.length}/3`;
         counter.classList.remove("is-root");
       }
-      if (termTitle) termTitle.textContent = "r1g00d@kali: ~";
-      if (termPrompt) termPrompt.textContent = "r1g00d@kali:~$";
+      if (termTitle) termTitle.textContent = "r1g0d@kali: ~";
+      if (termPrompt) termPrompt.textContent = "r1g0d@kali:~$";
       matrix.stop();
       closeBreach();
     }
@@ -363,7 +363,7 @@
 
   // FLAG 2: está no console para quem inspeciona o DevTools.
   console.log(
-    "%cr1g00d",
+    "%cr1g0d",
     "font: 48px VT323, monospace; color: #FF1E3C; text-shadow: 3px 0 #19E6FF;"
   );
   console.log(
@@ -378,12 +378,12 @@
   const boot = $("#boot");
   const bootLog = $("#boot-log");
   const BOOT_LINES = [
-    ["[    0.000] r1g00d kernel 6.6.6-redteam inicializando", "ok"],
+    ["[    0.000] r1g0d kernel 6.6.6-redteam inicializando", "ok"],
     ["[    0.112] montando /dev/curiosidade ........ ok", "ok"],
     ["[    0.204] carregando módulos: nmap burp metasploit python bash", "ok"],
     ["[    0.391] verificando escopo autorizado ..... ok", "ok"],
     ["[    0.518] firewall corporativo detectado .... contornando", "err"],
-    ["[    0.702] identidade: João V. Rigo // handle r1g00d", "ok"],
+    ["[    0.702] identidade: João V. Rigo // handle r1g0d", "ok"],
     ["[    0.811] classe: Red Team & Pentester entry-level", "ok"],
     ["[    0.930] canal aberto. bem-vindo.", "ok"]
   ];
@@ -433,7 +433,7 @@
         "  cat missoes.log   experiência profissional",
         "  ls findings/      projetos",
         "  cat tr1gg3r       detalhe do TR1GG3R SIEM",
-        "  nmap -sV r1g00d   skills",
+        "  nmap -sV r1g0d   skills",
         "  certs             certificações e trilha",
         "  contato           como falar comigo",
         "  cv                baixar currículo em PDF",
@@ -442,7 +442,7 @@
         "  reset -flags      zerar progresso das flags",
         "  anim              ativar/desativar animações",
         "  reboot            reiniciar o boot",
-        "  cd ~              voltar ao topo da página",
+        "  cd ../            voltar ao topo da página",
         "  clear             limpar a tela"
       ];
 
@@ -474,8 +474,8 @@
 
     whoami() {
       const header = isRoot()
-        ? '<span class="t-red">root</span> <span class="t-dim">[uid=0 // sessão elevada de João V. Rigo · r1g00d]</span>'
-        : '<span class="t-red">João V. Rigo</span> <span class="t-dim">[r1g00d]</span>';
+        ? '<span class="t-red">root</span> <span class="t-dim">[uid=0 // sessão elevada de João V. Rigo · r1g0d]</span>'
+        : '<span class="t-red">João V. Rigo</span> <span class="t-dim">[r1g0d]</span>';
 
       return [
         header,
@@ -504,7 +504,7 @@
       }
       return [
         '<span class="t-red">=========================================================</span>',
-        '<span class="t-red">  /root/contratar.txt — POR QUE TRAZER O r1g00d PRO TIME</span>',
+        '<span class="t-red">  /root/contratar.txt — POR QUE TRAZER O r1g0d PRO TIME</span>',
         '<span class="t-red">=========================================================</span>',
         "",
         '<span class="t-red">01. BASE REAL DE INFRAESTRUTURA (2 ANOS)</span>',
@@ -523,7 +523,7 @@
         "    traduzir risco técnico em impacto de negócio.",
         "",
         '<span class="t-dim">Pronto para somar em Pentest Júnior, Red Team ou AppSec:</span>',
-        'e-mail    <a href="mailto:r11gg0d@gmail.com?subject=Oportunidade%20-%20r1g00d">r11gg0d@gmail.com</a>',
+        'e-mail    <a href="mailto:r11gg0d@gmail.com?subject=Oportunidade%20-%20r1g0d">r11gg0d@gmail.com</a>',
         'linkedin  <a href="https://www.linkedin.com/in/jvrigo/" target="_blank" rel="noopener">linkedin.com/in/jvrigo</a>',
         'currículo <a href="' + CV + '" download="Joao_Victor_Rigo_Curriculo.pdf">baixar PDF completo</a>'
       ].join("\n");
@@ -569,7 +569,7 @@
         "[LOG]  alerta por e-mail + rate limiting via SQLite",
         "[OK]   0 dependências externas",
         "",
-        '<a href="https://github.com/r1g00d/trigger_siem" target="_blank" rel="noopener">github.com/r1g00d/trigger_siem</a>'
+        '<a href="https://github.com/r1g0d/trigger_siem" target="_blank" rel="noopener">github.com/r1g0d/trigger_siem</a>'
       ].join("\n");
     },
 
@@ -577,13 +577,13 @@
       return [
         "Plataforma educacional de geografia, biomas e geopolítica brasileira.",
         "Product Owner e dev. UML, BPMN, ABNT.",
-        '<a href="https://github.com/r1g00d/solo-nativo" target="_blank" rel="noopener">github.com/r1g00d/solo-nativo</a>'
+        '<a href="https://github.com/r1g0d/solo-nativo" target="_blank" rel="noopener">github.com/r1g0d/solo-nativo</a>'
       ].join("\n");
     },
 
-    "nmap -sv r1g00d"() {
+    "nmap -sv r1g0d"() {
       return [
-        '<span class="t-dim">Starting Nmap ( r1g00d edition )\nHost is up (0.0013s latency).</span>',
+        '<span class="t-dim">Starting Nmap ( r1g0d edition )\nHost is up (0.0013s latency).</span>',
         "PORT       STATE     SERVICE      VERSION",
         '22/tcp     <span class="t-red">open</span>      linux        Kali Linux, Bash Scripting',
         '53/tcp     <span class="t-red">open</span>      redes        TCP/IP, DNS, DHCP, VPN',
@@ -612,13 +612,14 @@
       return [
         'e-mail    <a href="mailto:r11gg0d@gmail.com">r11gg0d@gmail.com</a>',
         'linkedin  <a href="https://www.linkedin.com/in/jvrigo/" target="_blank" rel="noopener">linkedin.com/in/jvrigo</a>',
-        'github    <a href="https://github.com/r1g00d" target="_blank" rel="noopener">github.com/r1g00d</a>',
+        'github    <a href="https://github.com/r1g0d" target="_blank" rel="noopener">github.com/r1g0d</a>',
         'thm       <a href="https://tryhackme.com/p/r11gg0d" target="_blank" rel="noopener">tryhackme.com/p/r11gg0d</a>',
         'currículo <a href="' + CV + '" download="Joao_Victor_Rigo_Curriculo.pdf">baixar PDF</a>'
       ].join("\n");
     },
 
     cv() {
+      notifyCvDownload("Comando 'cv' no Terminal");
       const a = document.createElement("a");
       a.href = CV;
       a.download = "Joao_Victor_Rigo_Curriculo.pdf";
@@ -643,9 +644,9 @@
       return `Animações: <span class="${animsEnabled ? "t-red" : "t-dim"}">${animsEnabled ? "ATIVADAS [ON]" : "DESATIVADAS [OFF]"}</span>`;
     },
 
-    "cd ~"() {
+    "cd ../"() {
       window.scrollTo({ top: 0, behavior: animsEnabled ? "smooth" : "auto" });
-      return '<span class="t-red">Voltando ao início:</span> ' + (isRoot() ? "root@r1g00d:~#" : "r1g00d@kali:~$");
+      return '<span class="t-red">Subindo diretório:</span> ' + (isRoot() ? "root@r1g00d:~#" : "r1g00d@kali:~$");
     },
 
     ls() {
@@ -677,11 +678,11 @@
       ].join("\n");
     },
 
-    "sudo hire r1g00d"() {
+    "sudo hire r1g0d"() {
       return [
         '<span class="t-dim">[sudo] senha para recrutador: ********</span>',
         "Permissão concedida. Abrindo canal...",
-        '<a href="mailto:r11gg0d@gmail.com?subject=Oportunidade%20-%20r1g00d">r11gg0d@gmail.com</a>'
+        '<a href="mailto:r11gg0d@gmail.com?subject=Oportunidade%20-%20r1g0d">r11gg0d@gmail.com</a>'
       ].join("\n");
     },
 
@@ -732,9 +733,10 @@
     "experiencia": "cat missoes.log", "experiência": "cat missoes.log",
     "ls findings": "ls findings/", findings: "ls findings/", projetos: "ls findings/",
     "cat findings/tr1gg3r": "cat tr1gg3r", "cat findings/solo-nativo": "cat solo-nativo",
-    nmap: "nmap -sv r1g00d", "nmap r1g00d": "nmap -sv r1g00d", skills: "nmap -sv r1g00d",
+    nmap: "nmap -sv r1g0d", "nmap r1g0d": "nmap -sv r1g0d", skills: "nmap -sv r1g0d",
     curriculo: "cv", "currículo": "cv", cls: "clear", contact: "contato", logout: "exit",
-    cd: "cd ~", "cd /": "cd ~", topo: "cd ~", top: "cd ~",
+    cd: "cd ../", "cd ..": "cd ../", "..": "cd ../", "../": "cd ../",
+    "cd ~": "cd ../", "cd /": "cd ../", topo: "cd ../", top: "cd ../",
     "ls /root/": "ls /root", "ls root": "ls /root", "ls root/": "ls /root",
     "cat /root/contratar": "cat /root/contratar.txt",
     "cat contratar.txt": "cat /root/contratar.txt",
@@ -753,7 +755,7 @@
     else if (clean === FLAG3_B64) target = atob(FLAG3_B64);
 
     const n = FLAGS[hash(target)];
-    if (!n) return '<span class="t-red">Flag inválida.</span> <span class="t-dim">Formato: r1g00d{...}</span>';
+    if (!n) return '<span class="t-red">Flag inválida.</span> <span class="t-dim">Formato: r1g0d{...}</span>';
     if (found.includes(n)) return `Flag #${n} já registrada. ${found.length}/3.`;
 
     found.push(n);
@@ -767,7 +769,7 @@
         '<span class="t-red">#        ACESSO ROOT CONCEDIDO  3/3         #</span>',
         '<span class="t-red">#############################################</span>',
         "",
-        'Prompt elevado para <span class="t-red">root@r1g00d:~#</span>.',
+        'Prompt elevado para <span class="t-red">root@r1g0d:~#</span>.',
         'Novos comandos destravados: <span class="t-red">ls /root</span> e <span class="t-red">cat /root/contratar.txt</span>.',
         'Contato direto: <a href="mailto:r11gg0d@gmail.com?subject=Peguei%20as%203%20flags">r11gg0d@gmail.com</a>'
       ].join("\n");
@@ -944,7 +946,7 @@
     if (n === 1) return "Primeira tentativa. Vou fingir que foi curiosidade.";
     if (n === 2) return "Segunda tentativa. Já está virando hobby.";
     if (n < 5) return "Tentativa #" + n + ". Respeito a persistência.";
-    return "Tentativa #" + n + ". Se é pra atacar, que seja com escopo e contrato: digite sudo hire r1g00d.";
+    return "Tentativa #" + n + ". Se é pra atacar, que seja com escopo e contrato: digite sudo hire r1g0d.";
   }
 
   const wait = (ms) => (animsEnabled ? new Promise((r) => setTimeout(r, ms)) : Promise.resolve());
@@ -1016,13 +1018,13 @@
     const threat = detectThreat(line);
     if (threat) { playTaunt(threat, line); return; }
 
-    const flagMatch = line.match(/r1g00d\{[^}]+\}/i);
+    const flagMatch = line.match(/r1g0d\{[^}]+\}/i);
     if (flagMatch) { print(submitFlag(flagMatch[0])); return; }
 
     const lower = line.toLowerCase().replace(/\s+/g, " ");
 
     if (lower.startsWith("submit ")) { print(submitFlag(line.slice(7))); return; }
-    if (lower === "submit") { print('<span class="t-dim">Cole a flag r1g00d{...} direto ou use submit &lt;flag&gt;</span>'); return; }
+    if (lower === "submit") { print('<span class="t-dim">Cole a flag r1g0d{...} direto ou use submit &lt;flag&gt;</span>'); return; }
 
     const key = hasOwn(ALIAS, lower) ? ALIAS[lower] : lower;
     const fn = hasOwn(COMMANDS, key) ? COMMANDS[key] : null;
@@ -1232,7 +1234,7 @@
   function startTerminal() {
     if (started) return;
     started = true;
-    print('<span class="t-dim">r1g00d OS 6.6.6 · tty1</span>');
+    print('<span class="t-dim">r1g0d OS 6.6.6 · tty1</span>');
     print('Bem-vindo. Digite <span class="t-red">help</span> ou clique num dos botões abaixo.');
     if (isRoot()) {
       print('<span class="t-red">[ROOT ATIVO]</span> Sessão elevada restaurada. Digite <span class="t-red">cat /root/contratar.txt</span> ou <span class="t-red">help</span>.');
@@ -1240,5 +1242,50 @@
       print('<span class="t-dim">Sessão anterior: ' + found.length + "/3 flags encontradas.</span>");
     }
   }
+
+  /* =========================================================
+     16. TELEMETRIA: NOTIFICAR DOWNLOAD DE CURRÍCULO POR E-MAIL
+     ========================================================= */
+  const CV_WEBHOOK_URL = "https://api.web3forms.com/submit";
+  const CV_ACCESS_KEY = "999344be-ff34-478a-a3df-a555e7daf164";
+  let cvNotifiedInSession = false;
+
+  function notifyCvDownload(origem) {
+    if (cvNotifiedInSession || !CV_ACCESS_KEY || CV_ACCESS_KEY === "COLE_SUA_ACCESS_KEY_AQUI") return;
+    cvNotifiedInSession = true;
+
+    const payload = {
+      access_key: CV_ACCESS_KEY,
+      subject: "[r1g0d.github.io] Alguém baixou seu currículo!",
+      from_name: "r1g0d Portfolio Telemetry",
+      origem: origem,
+      modo_root: isRoot() ? "SIM (Conquistou 3/3 flags!)" : `Não (${found.length}/3 flags)`,
+      tentativas_waf: String(intrusions),
+      referrer: document.referrer || "Acesso direto",
+      idioma: navigator.language || "desconhecido",
+      tela: `${window.innerWidth}x${window.innerHeight}`,
+      horario: new Date().toLocaleString("pt-BR")
+    };
+
+    fetch(CV_WEBHOOK_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).catch(() => { /* falha silenciosa se houver bloqueador */ });
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="curriculo.pdf"]');
+    if (!link) return;
+    const origem = link.closest(".topbar") ? "Header (Topbar)"
+      : link.closest("#contato") ? "Seção Contato"
+      : link.closest("#terminal") ? "Link dentro do Terminal"
+      : "Página";
+    notifyCvDownload(origem);
+  });
 
 })();

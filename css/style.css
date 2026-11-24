@@ -1,5 +1,5 @@
 /* =========================================================
-   r1g00d // portfólio
+   r1g0d // portfólio
    Preto puro, branco-fósforo, vermelho sinal.
    Ciano aparece só no rasgo RGB do glitch e no foco.
    ========================================================= */
@@ -557,7 +557,7 @@ main {
 .term__out:focus-visible { outline-offset: -2px; }
 .term__out p { margin: 0; }
 .term__out .cmd { color: var(--phos); }
-.term__out .cmd::before { content: "r1g00d@kali:~$ "; color: var(--sig); }
+.term__out .cmd::before { content: "r1g0d@kali:~$ "; color: var(--sig); }
 .term__out .cmd--root::before { content: "root@r1g00d:~# "; color: var(--sig); font-weight: 700; }
 .t-dim { color: var(--dim); }
 .t-red { color: var(--sig); }
