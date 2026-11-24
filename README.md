@@ -1,4 +1,4 @@
-# r1g00d.github.io
+# r1g0d.github.io
 
 <<<<<<< HEAD
 Portfólio de João V. Rigo (r1g00d), Red Team & Pentester entry-level em formação.
