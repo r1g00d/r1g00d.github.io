@@ -1538,7 +1538,7 @@
   function startTerminal() {
     if (started) return;
     started = true;
-    print('<span class="t-dim">r1g0d OS 6.6.6 · tty1</span>');
+    print('<span class="t-dim">r1g0d OS 2.3.0 · tty1</span>');
     print('<span class="t-red">Hello, friend.</span>');
     print(L("Bem-vindo. Digite ", "Welcome. Type ", "Bienvenido. Escribe ") + red("help") + L(" ou clique num dos botões abaixo.", " or click one of the buttons below.", " o haz clic en uno de los botones de abajo."));
     if (isRoot()) {

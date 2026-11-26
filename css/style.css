@@ -203,9 +203,26 @@ body.is-root .topbar__root-tag {
   font-size: var(--step--1);
 }
 .lang {
+  --c: 9px;
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
-  border: 1px solid var(--line);
+  padding: 1px;
+  background: var(--line);
+  clip-path: polygon(var(--c) 0, 100% 0, 100% 100%, calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
 }
+.lang::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  background: var(--void);
+  clip-path: polygon(calc(var(--c) - 0.59px) 0, 100% 0, 100% 100%, calc(100% - var(--c) + 0.59px) 100%, 0 100%, 0 calc(var(--c) - 0.59px));
+}
+.lang:focus-within { clip-path: none; }
+.lang button:first-child { clip-path: polygon(calc(var(--c) - 0.59px) 0, 100% 0, 100% 100%, 0 100%, 0 calc(var(--c) - 0.59px)); }
+.lang button:last-child { clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - var(--c) + 0.59px) 100%, 0 100%); }
+.lang button:focus-visible { clip-path: none; }
 .lang button {
   background: transparent;
   border: 0;
@@ -225,23 +242,37 @@ body.is-root .topbar__root-tag {
   font-weight: 700;
 }
 .topbar__anim {
+  --c: 8px;
+  --bc: var(--line);
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: transparent;
-  border: 1px solid var(--line);
+  background: var(--bc);
+  border: 0;
+  clip-path: polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
   color: var(--dim);
   font-family: var(--f-mono);
   font-size: var(--step--1);
   padding: 0.2rem 0.55rem;
   cursor: pointer;
   line-height: 1.2;
-  transition: border-color 140ms, color 140ms;
+  transition: color 140ms;
+}
+.topbar__anim::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  background: var(--void);
+  clip-path: polygon(calc(var(--c) - 0.59px) 0, 100% 0, 100% calc(100% - var(--c) + 0.59px), calc(100% - var(--c) + 0.59px) 100%, 0 100%, 0 calc(var(--c) - 0.59px));
 }
 .topbar__anim:hover {
-  border-color: var(--phos);
+  --bc: var(--phos);
   color: var(--phos);
 }
+.topbar__anim:focus-visible { clip-path: none; }
 .btn-anim__dot {
   width: 0.45rem;
   height: 0.45rem;
@@ -355,26 +386,47 @@ body.is-root .topbar__root-tag {
 }
 
 /* ---------- BOTÕES ---------- */
+/* Botões com dois cantos cortados. A borda é a cor de fundo do botão (--bc) e
+   o miolo (--fill) é uma camada 1px menor, para a diagonal também ter borda. */
 .btn {
+  --c: 10px;
+  --bc: var(--phos);
+  --fill: var(--void);
+  --cut: polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+  --cut-in: polygon(calc(var(--c) - 0.59px) 0, 100% 0, 100% calc(100% - var(--c) + 0.59px), calc(100% - var(--c) + 0.59px) 100%, 0 100%, 0 calc(var(--c) - 0.59px));
+  position: relative;
+  isolation: isolate;
   display: inline-block;
   padding: 0.55rem 1rem;
-  border: 1px solid var(--phos);
+  border: 0;
+  background: var(--bc);
+  clip-path: var(--cut);
   font-family: var(--f-mono);
   font-size: var(--step--1);
   text-decoration: none;
   color: var(--phos);
-  background: transparent;
   cursor: pointer;
-  transition: background 120ms, color 120ms, border-color 120ms;
+  transition: color 120ms;
 }
-.btn:hover { background: var(--phos); color: var(--void); }
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  background: var(--fill);
+  clip-path: var(--cut-in);
+  transition: background 120ms;
+}
+.btn:hover { --fill: var(--phos); color: var(--void); }
 .btn--solid {
-  background: var(--sig);
-  border-color: var(--sig);
+  --bc: var(--sig);
+  --fill: var(--sig);
   color: var(--void);
   font-weight: 700;
 }
-.btn--solid:hover { background: var(--phos); border-color: var(--phos); }
+.btn--solid:hover { --bc: var(--phos); }
+/* o corte esconderia o contorno de foco: com foco, o botão volta a ser reto */
+.btn:focus-visible { clip-path: none; }
 .btn__short { display: none; }
 @media (max-width: 420px) {
   .btn__long { display: none; }
@@ -1042,12 +1094,12 @@ body.is-root .term__quick-root {
   align-items: center;
 }
 .breach__btn-close {
-  border-color: var(--line);
+  --bc: var(--line);
   color: var(--dim);
 }
 .breach__btn-close:hover {
-  border-color: var(--sig);
-  background: transparent;
+  --bc: var(--sig);
+  --fill: var(--void);
   color: var(--sig);
 }
 
