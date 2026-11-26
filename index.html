@@ -2,20 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src https://api.web3forms.com; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src https://api.web3forms.com; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>r1g0d // João V Rigo</title>
-  <meta name="description" content="João V. Rigo (r1g0d): Red Team & Pentester entry-level em formação, com base em infraestrutura, redes e Linux.">
+  <meta name="description" content="João V. Rigo (r1g0d): Analista de Segurança da Informação Jr., Pentester e Red Team em formação, com base em infraestrutura, redes e Linux.">
   <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://r1g00d.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://r1g00d.github.io/">
+  <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="r1g0d // João V Rigo">
-  <meta property="og:description" content="Red Team & Pentest entry-level em formação. Entre no sistema.">
-  <link rel="icon" href="assets/sigil.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/boot-flag.js"></script>
+  <meta property="og:description" content="Analista de Segurança da Informação Jr., Pentester e Red Team em formação. Entre no sistema.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="r1g0d // João V Rigo">
+  <meta name="twitter:description" content="Analista de Segurança da Informação Jr., Pentester e Red Team em formação.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"João Victor Rigo","alternateName":"r1g0d","jobTitle":"Analista de Segurança da Informação Jr.","url":"https://r1g00d.github.io/","address":{"@type":"PostalAddress","addressLocality":"Franca","addressRegion":"SP","addressCountry":"BR"},"sameAs":["https://github.com/r1g00d","https://www.linkedin.com/in/jvrigo/","https://tryhackme.com/p/r11gg0d"]}</script>
+  <link rel="icon" href="assets/favicon.svg?v=5" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=5">
+  <script src="js/boot-flag.js?v=3"></script>
 </head>
 <body>
 <!--
@@ -50,6 +57,11 @@
     <span class="topbar__root-tag" aria-hidden="true">[ROOT]</span>
   </a>
   <nav class="topbar__nav" id="topbar-nav" aria-label="Seções">
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" lang="pt" aria-pressed="true" title="Português">PT</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="false" title="Español">ES</button>
+    </div>
     <button type="button" id="toggle-anim" class="topbar__anim" aria-pressed="true" title="Ativar ou desativar animações e efeitos visuais">
       <span class="btn-anim__dot" aria-hidden="true"></span>
       <span class="btn-anim__text">anim [ON]</span>
@@ -156,13 +168,13 @@
         </div>
       </article>
       <article class="log__entry">
-        <p class="log__ts">[2025-10 → atual]</p>
+        <p class="log__ts">[2025-10 → 2026-03]</p>
         <div>
           <h3>Positivo Tecnologia S.A.</h3>
-          <p class="log__role">Técnico de Suporte Jr. (Field Service)</p>
+          <p class="log__role">Técnico de Suporte Pleno (N2 - Field Service)</p>
           <ul>
-            <li>Sustentação autônoma do parque tecnológico de clientes corporativos e governamentais, com gestão de SLA em várias unidades.</li>
-            <li>Diagnóstico avançado de hardware e software e aplicação de políticas de segurança lógica em estações de trabalho.</li>
+            <li>Sustentação autônoma do parque tecnológico de clientes corporativos e governamentais, gerenciando SLAs em múltiplas unidades.</li>
+            <li>Aplicação de políticas de segurança lógica, controle de acesso e hardening básico em estações de trabalho.</li>
           </ul>
         </div>
       </article>
@@ -206,7 +218,16 @@
         <li><strong>Engenharia de Software</strong>, Universidade de Franca (Unifran). Em andamento.</li>
         <li><strong>Técnico em Informática</strong>, ETEC Dr. Júlio Cardoso. Concluído em 2020.</li>
         <li><strong>Espanhol</strong>, Centro de Estudos de Línguas (Gov. SP). Concluído em 2019.</li>
-        <li>Idiomas: inglês intermediário, espanhol intermediário.</li>
+        <li>Idiomas: inglês intermediário (leitura técnica), espanhol intermediário.</li>
+      </ul>
+    </div>
+
+    <div class="edu">
+      <h3>Certificações e trilhas</h3>
+      <ul>
+        <li><strong>Pre Security</strong>, TryHackMe. Concluído.</li>
+        <li><strong>Jr. Penetration Tester / Cyber Security 101</strong>, TryHackMe.</li>
+        <li><strong>eJPT</strong>, em preparação.</li>
       </ul>
     </div>
   </section>
@@ -234,17 +255,26 @@
 [SCAN] Brute Force ......... IP banido (300s)
 [SCAN] Scanner detectado ... sqlmap / nikto / nmap
 [OK]   0 dependências externas</pre>
-      <a class="btn" href="https://github.com/r1g0d/trigger_siem" target="_blank" rel="noopener">Ver repositório</a>
+      <a class="btn" href="https://github.com/r1g00d/trigger_siem" target="_blank" rel="noopener">Ver repositório</a>
+    </article>
+
+    <article class="finding finding--med">
+      <header class="finding__head">
+        <span class="finding__id">R1G-002</span>
+        <span class="sev sev--med">Severidade: média</span>
+      </header>
+      <h3>Portfólio interativo</h3>
+      <p>Este site: aplicação web estática com WAF simulado que detecta payloads maliciosos (SQLi, NoSQLi, XSS, LFI, RCE, SSTI), CSP restritiva e desafios de enumeração e escalonamento de privilégios.</p>
+      <a class="btn" href="https://github.com/r1g00d/r1g00d.github.io" target="_blank" rel="noopener">Ver repositório</a>
     </article>
 
     <article class="finding finding--info">
       <header class="finding__head">
-        <span class="finding__id">R1G-002</span>
+        <span class="finding__id">R1G-003</span>
         <span class="sev sev--info">Severidade: informativa</span>
       </header>
       <h3>Solo Nativo</h3>
       <p>Plataforma educacional sobre geografia, biomas e geopolítica brasileira. Projeto acadêmico da Unifran em que atuo como Product Owner e desenvolvedor, com UML, BPMN e documentação ABNT.</p>
-      <a class="btn" href="https://github.com/r1g0d/solo-nativo" target="_blank" rel="noopener">Em produção</a>
     </article>
   </section>
 
@@ -267,18 +297,18 @@
       <div class="scan__row" role="row"><span role="cell">9200/tcp</span><span role="cell" class="st-filt">filtered</span><span role="cell">siem</span><span role="cell">Sentinel, Splunk, QRadar, MITRE ATT&amp;CK</span></div>
       <div class="scan__row" role="row"><span role="cell">31337/tcp</span><span role="cell" class="st-filt">filtered</span><span role="cell">c++</span><span role="cell">Próxima linguagem</span></div>
     </div>
-    <p class="sec__lead" translate="no"open: uso no dia a dia. <br>filtered: em estudo.</p></br>
+    <p class="sec__lead"><span translate="no">open</span>: uso no dia a dia.<br><span translate="no">filtered</span>: em estudo.</p>
   </section>
 
   <!-- CONTATO -->
   <section id="contato" class="sec sec--contact">
     <p class="sec__cmd">$ nc -lvnp 4444</p>
     <h2>Abra uma conexão</h2>
-    <p class="sec__lead">Porta 4444 aberta para vagas de Pentest Júnior, Red Team e AppSec. Disponível para entrevistas, desafios técnicos e novos projetos..</p>
+    <p class="sec__lead">Porta 4444 aberta para vagas de Pentest Júnior, Red Team e AppSec. Disponível para entrevistas, desafios técnicos e novos projetos.</p>
     <div class="contact">
       <a class="btn" href="mailto:r11gg0d@gmail.com">e-Mail</a>
       <a class="btn" href="https://www.linkedin.com/in/jvrigo/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/r1g0d" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://github.com/r1g00d" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://tryhackme.com/p/r11gg0d" target="_blank" rel="noopener">TryHackMe</a>
       <a class="btn" href="assets/curriculo.pdf" download="Joao_Victor_Rigo_Curriculo.pdf">Baixar currículo</a>
     </div>
@@ -301,7 +331,8 @@
       <p class="planet-sub">&mdash; Hackers (1995)</p>
     </div>
   </div>
-  <p class="foot__copy">[EOF] r1g0d // Red Team & Pentestamp;</p>
+  <p class="foot__copy">[EOF] r1g0d // Red Team &amp; Pentest</p>
+  <p class="foot__copy">Privacidade: ao baixar o currículo, um aviso anônimo (origem do clique, progresso no CTF, idioma, tamanho da tela e site de origem) é enviado ao dono do site. Nenhum dado pessoal é coletado.</p>
 </footer>
 
 <!-- BOTÃO VOLTAR AO TOPO -->
@@ -330,6 +361,7 @@
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html> 
